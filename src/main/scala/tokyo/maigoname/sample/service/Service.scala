@@ -4,7 +4,6 @@ class Service {
 
   private val value = "Hello World"
 
-  def getMessage(): String = {
+  def getMessage(): String =
     value
-  }
 }
