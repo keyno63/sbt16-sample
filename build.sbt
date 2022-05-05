@@ -14,3 +14,5 @@ lazy val root = (project in file("."))
       "org.mockito"    % "mockito-core" % mockitoVersion   % Test
     )
   )
+
+run / fork := true
