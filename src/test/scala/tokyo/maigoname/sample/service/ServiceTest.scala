@@ -1,7 +1,5 @@
 package tokyo.maigoname.sample.service
 
-import org.scalatest.prop.TableDrivenPropertyChecks._
-
 class ServiceTest extends org.scalatest.flatspec.AnyFlatSpec {
 
   val target = new Service
@@ -9,11 +7,29 @@ class ServiceTest extends org.scalatest.flatspec.AnyFlatSpec {
   "sample test" should "target value" in {
     assert(target.getMessage() == "Hello World")
   }
+}
+
+import org.scalatest.prop.TableDrivenPropertyChecks
+import org.scalatest.propspec.AnyPropSpec
+import org.scalatest.matchers.should.Matchers
+
+class ServicePropsTest extends AnyPropSpec with TableDrivenPropertyChecks with Matchers {
+
+  private val target = new Service
 
   private val props = Table(
-    "Hello World"
+    "Hello World1",
+    "Hello World",
+    "Hello World",
+    "Hello World",
+    "Hello World",
+    "Hello World",
   )
-  forAll(props) { n =>
-    assert(target.getMessage() == n)
+
+  property("property test") {
+    forAll(props) { n =>
+      println(n)
+      target.getMessage() shouldBe n
+    }
   }
 }
