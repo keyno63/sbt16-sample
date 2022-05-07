@@ -5,6 +5,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
+        # adopt-jdk 16 is latest. cf: https://adoptopenjdk.net/
         java: [ '17.0' ]
         scala: [ '2.13.8', '3.0.0', '3.1.0' ]
     runs-on: ubuntu-latest
