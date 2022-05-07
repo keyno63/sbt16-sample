@@ -7,6 +7,7 @@ jobs:
       matrix:
         # adopt-jdk 16 is latest. cf: https://adoptopenjdk.net/
         # add comment
+        # add comment2
         java: [ '16.0' ]
         scala: [ '2.13.8', '3.0.0', '3.1.0' ]
     runs-on: ubuntu-latest
