@@ -1,0 +1,22 @@
+name: CI
+on: [pull_request, push]
+jobs:
+  build:
+    strategy:
+      fail-fast: true
+      matrix:
+        java: [ '17.0' ]
+        scala: [ '2.13.8', '3.0.0', '3.1.0' ]
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Setup JDK
+          uses: olafurpg/setup-scala@v13
+          with:
+            java-version: "adopt@1.${{ matrix.java }}"
+        - name: Cache SBT
+          uses: coursier/cache-action@v6
+          with:
+            extraKey: scala-${{ matrix.scala }}
+        - name: check compile
+          run: sbt compile
