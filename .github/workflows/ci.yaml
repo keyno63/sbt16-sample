@@ -21,3 +21,5 @@ jobs:
           extraKey: scala-${{ matrix.scala }}
       - name: check compile
         run: sbt compile
+      - name: test
+        run: sbt test
