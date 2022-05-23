@@ -18,7 +18,7 @@ class ServicePropsTest extends AnyPropSpec with TableDrivenPropertyChecks with M
   private val target = new Service
 
   private val props = Table(
-    "Hello World1",
+    "Test Pattern",
     "Hello World",
     "Hello World",
     "Hello World",
